@@ -1,0 +1,21 @@
+Install Ruby support in 3 simple steps:
+
+1.
+Install KDevPlatform development package (usually called libkdevplatform-devel or similar) or compile KDevPlatform and KDevelop from sources.
+
+2.
+Checkout tag for your KDevelop version, for example:
+    git checkout kdevelop-4-2
+Skip this step if you have KDevelop master installed from sources.
+
+3.
+Build and install:
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=<kde installation directory>
+    make
+    sudo make install
+
+Notes:
+- if KDevelop is installed from distribution packages, installation directory is normally /usr
+- if you have self-compiled KDevelop, don't forget to run kbuildsycoca4 after installation
