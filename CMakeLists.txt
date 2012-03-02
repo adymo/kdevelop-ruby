@@ -6,6 +6,8 @@ enable_testing()
 find_package(KDE4 REQUIRED)
 find_package(KDevPlatform REQUIRED)
 
+include (KDE4Defaults)
+
 include_directories(
     ${KDEVPLATFORM_INCLUDE_DIR}
     ${KDE4_INCLUDES}
