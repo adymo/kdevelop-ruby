@@ -127,6 +127,11 @@ uint RailsDataProvider::itemCount() const
     return Base::filteredItems().count();
 }
 
+uint RailsDataProvider::unfilteredItemCount() const
+{
+    return Base::items().count();
+}
+
 void RailsDataProvider::reset()
 {
     Base::clearFilter();
