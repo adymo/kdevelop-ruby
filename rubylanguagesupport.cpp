@@ -166,7 +166,8 @@ void RubyLanguageSupport::documentActivated(KDevelop::IDocument * document)
 void RubyLanguageSupport::documentLoaded(KDevelop::IDocument *document)
 {
     kDebug() << "loaded document";
-    core()->languageController()->backgroundParser()->addDocument(document->url());
+    KDevelop::IndexedString indexedUrl(document->url());
+    core()->languageController()->backgroundParser()->addDocument(indexedUrl);
 }
 
 void RubyLanguageSupport::documentClosed(KDevelop::IDocument *document)
@@ -178,8 +179,10 @@ void RubyLanguageSupport::projectOpened(KDevelop::IProject *project)
 {
     //parse project files
     KDevelop::BackgroundParser *parser = core()->languageController()->backgroundParser();
-    foreach (const KDevelop::ProjectFileItem *file, project->files())
-        parser->addDocument(file->url());
+    foreach (const KDevelop::ProjectFileItem *file, project->files()) {
+        KDevelop::IndexedString indexedUrl(file->url());
+        parser->addDocument(indexedUrl);
+    }
 }
 
 void RubyLanguageSupport::projectClosing(KDevelop::IProject *project)
@@ -190,7 +193,8 @@ void RubyLanguageSupport::projectClosing(KDevelop::IProject *project)
 void RubyLanguageSupport::documentChanged(KDevelop::IDocument *document)
 {
     kDebug() << "loaded document";
-    core()->languageController()->backgroundParser()->addDocument(document->url());
+    KDevelop::IndexedString indexedUrl(document->url());
+    core()->languageController()->backgroundParser()->addDocument(indexedUrl);
 }
 
 void RubyLanguageSupport::runCurrentFile()
