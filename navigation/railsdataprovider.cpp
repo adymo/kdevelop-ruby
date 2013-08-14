@@ -148,7 +148,7 @@ void RailsDataProvider::reset()
 
 QStringList RailsDataProvider::scopes()
 {
-    return QStringList() << "Project";
+    return QStringList() << i18n("Project");
 }
 
 void RailsDataProvider::setFilterText(const QString& text)
