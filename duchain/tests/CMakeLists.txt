@@ -7,4 +7,10 @@ include_directories(
 
 set(duchain_SRCS duchain.cpp)
 kde4_add_unit_test(duchain ${duchain_SRCS})
-target_link_libraries(duchain kdevrubyduchain ${QT_QTTEST_LIBRARY})
+target_link_libraries(duchain
+    kdevrubyduchain
+    kdevrubyparser
+    ${QT_QTTEST_LIBRARY}
+    ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+    ${KDEVPLATFORM_INTERFACES_LIBRARIES}
+)

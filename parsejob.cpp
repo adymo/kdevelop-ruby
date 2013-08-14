@@ -58,8 +58,8 @@ using namespace KDevelop;
 namespace Ruby
 {
 
-SimpleParseJob::SimpleParseJob( const KUrl &url, RubyLanguageSupport *parent )
-        : KDevelop::ParseJob( url ), m_parser(new Parser), m_readFromDisk( false )
+SimpleParseJob::SimpleParseJob( const KDevelop::IndexedString &url, RubyLanguageSupport *parent )
+        : KDevelop::ParseJob( url, parent ), m_parser(new Parser), m_readFromDisk( false )
 {}
 
 SimpleParseJob::~SimpleParseJob()

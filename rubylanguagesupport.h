@@ -47,7 +47,7 @@ public:
 
     static RubyLanguageSupport* self();
 
-    virtual KDevelop::ParseJob* createParseJob(const KUrl&);
+    virtual KDevelop::ParseJob* createParseJob(const KDevelop::IndexedString&);
 
     virtual QString name() const;
 

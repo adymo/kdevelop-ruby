@@ -51,7 +51,7 @@ QString RailsQuickOpenData::htmlDescription() const
     return "<small><small>" + m_explanation + ' ' + m_item.originUrl.fileName() + "</small></small>";
 }
 
-bool RailsQuickOpenData::execute(QString& filterText)
+bool RailsQuickOpenData::execute(QString& /*filterText*/)
 {
     KDevelop::ICore::self()->documentController()->openDocument( m_item.url );
     return true;
@@ -101,20 +101,12 @@ RailsDataProvider::RailsDataProvider(Ruby::RailsDataProvider::Kind kind): m_kind
     reset();
 }
 
-QList<KDevelop::QuickOpenDataPointer> RailsDataProvider::data(uint start, uint end) const
+KDevelop::QuickOpenDataPointer RailsDataProvider::data(uint row) const
 {
-    if( end > (uint)Base::filteredItems().count() )
-        end = Base::filteredItems().count();
+    const QList<RailsQuickOpenItem>& items( filteredItems() );
 
-    QList<KDevelop::QuickOpenDataPointer> ret;
-
-    for( uint a = start; a < end; a++ ) {
-        RailsQuickOpenItem f( Base::filteredItems()[a] );
-        QString dataExplanation = m_kind == Views ? i18n("View for:") : i18n("Test for:");
-        ret << KDevelop::QuickOpenDataPointer( new RailsQuickOpenData( Base::filteredItems()[a], dataExplanation ) );
-    }
-
-    return ret;
+    return KDevelop::QuickOpenDataPointer( new RailsQuickOpenData(
+        items[row], m_kind == Views ? i18n("View for:") : i18n("Test for:") ) );
 }
 
 void RailsDataProvider::enableData(const QStringList& items, const QStringList& scopes)

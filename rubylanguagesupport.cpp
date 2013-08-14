@@ -143,7 +143,7 @@ RubyLanguageSupport* RubyLanguageSupport::self()
     return m_self;
 }
 
-KDevelop::ParseJob* RubyLanguageSupport::createParseJob(const KUrl &url)
+KDevelop::ParseJob* RubyLanguageSupport::createParseJob(const KDevelop::IndexedString &url)
 {
     return new SimpleParseJob(url, this);
 }

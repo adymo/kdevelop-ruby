@@ -40,7 +40,7 @@ public:
         Resheduled = KDevelop::TopDUContext::LastFeature
     };
 
-    SimpleParseJob( const KUrl &url, RubyLanguageSupport* parent );
+    SimpleParseJob( const KDevelop::IndexedString &url, RubyLanguageSupport* parent );
 
     virtual ~SimpleParseJob();
 
