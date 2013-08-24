@@ -12,7 +12,7 @@ Skip this step if you have KDevelop master installed from sources.
 Build and install:
     mkdir build
     cd build
-    cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=<kde installation directory>
+    cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=<kde installation directory> ..
     make
     sudo make install
 
