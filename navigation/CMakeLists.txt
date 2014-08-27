@@ -13,6 +13,7 @@ target_link_libraries( kdevrubynavigation
     ${KDE4_KDECORE_LIBS}
     ${KDEVPLATFORM_INTERFACES_LIBRARIES}
     ${KDEVPLATFORM_LANGUAGE_LIBRARIES}
+    ${KDEVPLATFORM_UTIL_LIBRARIES}
     ${KDE4_KTEXTEDITOR_LIBS}
     kdevrubyparser
 )

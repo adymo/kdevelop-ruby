@@ -40,6 +40,7 @@
 #include <interfaces/ilanguage.h>
 
 #include <language/duchain/duchain.h>
+#include <language/duchain/problem.h>
 #include <language/duchain/duchainlock.h>
 #include <language/duchain/declaration.h>
 #include <language/duchain/topducontext.h>

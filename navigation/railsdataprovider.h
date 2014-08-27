@@ -58,10 +58,8 @@ private:
     QString m_explanation;
 };
 
-typedef KDevelop::FilterWithSeparator<RailsQuickOpenItem> Base;
-
 class KDEVRUBYNAVIGATION_EXPORT RailsDataProvider: public KDevelop::QuickOpenDataProviderBase,
-        public Base, public KDevelop::QuickOpenFileSetInterface {
+        public KDevelop::PathFilter<RailsQuickOpenItem, RailsDataProvider>, public KDevelop::QuickOpenFileSetInterface {
 public:
     enum Kind { Views, Tests };
 
@@ -74,6 +72,7 @@ public:
     virtual void enableData( const QStringList& items, const QStringList& scopes );
 
     virtual QString itemText( const RailsQuickOpenItem& data ) const;
+    KDevelop::Path itemPath( const RailsQuickOpenItem& data ) const;
 
     virtual QSet<KDevelop::IndexedString> files() const;
 

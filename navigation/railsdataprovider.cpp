@@ -116,17 +116,17 @@ void RailsDataProvider::enableData(const QStringList& items, const QStringList& 
 
 uint RailsDataProvider::itemCount() const
 {
-    return Base::filteredItems().count();
+    return filteredItems().count();
 }
 
 uint RailsDataProvider::unfilteredItemCount() const
 {
-    return Base::items().count();
+    return items().count();
 }
 
 void RailsDataProvider::reset()
 {
-    Base::clearFilter();
+    clearFilter();
 
     KDevelop::IDocument *activeDocument = KDevelop::ICore::self()->documentController()->activeDocument();
 
@@ -153,12 +153,17 @@ QStringList RailsDataProvider::scopes()
 
 void RailsDataProvider::setFilterText(const QString& text)
 {
-    Base::setFilter( text.split('/'), QChar('/') );
+    setFilter( text.split('/') );
 }
 
 QString RailsDataProvider::itemText(const RailsQuickOpenItem& data) const
 {
     return data.url.fileName();
+}
+
+KDevelop::Path RailsDataProvider::itemPath( const RailsQuickOpenItem& data ) const
+{
+  return KDevelop::Path(data.url.fileName());
 }
 
 QSet< KDevelop::IndexedString > RailsDataProvider::files() const
